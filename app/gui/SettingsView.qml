@@ -954,6 +954,17 @@ Flickable {
                     ToolTip.visible: hovered
                     ToolTip.text: qsTr("This will close the app or game you are streaming when you end your stream. You will lose any unsaved progress!")
                 }
+
+                CheckBox {
+                    id: confirmAppQuit
+                    width: parent.width
+                    text: qsTr("Confirm before quitting a running app or game")
+                    font.pointSize:  12
+                    checked: StreamingPreferences.confirmAppQuit
+                    onCheckedChanged: {
+                        StreamingPreferences.confirmAppQuit = checked
+                    }
+                }
             }
         }
 

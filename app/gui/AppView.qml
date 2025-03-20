@@ -5,6 +5,7 @@ import QtQuick.Controls.Material 2.2
 import AppModel 1.0
 import ComputerManager 1.0
 import SdlGamepadKeyNavigation 1.0
+import StreamingPreferences 1.0
 
 CenteredGridView {
     property int computerIndex
@@ -288,9 +289,16 @@ CenteredGridView {
         }
 
         function doQuitGame() {
-            quitAppDialog.appName = appModel.getRunningAppName()
-            quitAppDialog.segueToStream = false
-            quitAppDialog.open()
+            if (StreamingPreferences.confirmAppQuit) {
+                quitAppDialog.appName = appModel.getRunningAppName()
+                quitAppDialog.segueToStream = false
+                quitAppDialog.open()
+            }
+            else {
+                var component = Qt.createComponent("QuitSegue.qml")
+                var params = {"appName": appModel.getRunningAppName(), "quitRunningAppFn": appModel.quitRunningApp, "nextAppName": null, "nextSession": null}
+                stackView.push(component.createObject(stackView, params))
+            }
         }
 
         Loader {

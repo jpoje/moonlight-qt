@@ -456,6 +456,9 @@ void StreamCommandLineParser::parse(const QStringList &args, StreamingPreference
     // Resolve --quit-after and --no-quit-after options
     preferences->quitAppAfter = parser.getToggleOptionValue("quit-after", preferences->quitAppAfter);
 
+    // Resolve --confirm-app-quit and --no-confirm-app-quit options
+    preferences->confirmAppQuit = parser.getToggleOptionValue("confirm-app-quit", preferences->confirmAppQuit);
+
     // Resolve --absolute-mouse and --no-absolute-mouse options
     preferences->absoluteMouseMode = parser.getToggleOptionValue("absolute-mouse", preferences->absoluteMouseMode);
 

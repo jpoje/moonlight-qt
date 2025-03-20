@@ -116,6 +116,7 @@ public:
     Q_PROPERTY(bool multiController MEMBER multiController NOTIFY multiControllerChanged)
     Q_PROPERTY(bool enableMdns MEMBER enableMdns NOTIFY enableMdnsChanged)
     Q_PROPERTY(bool quitAppAfter MEMBER quitAppAfter NOTIFY quitAppAfterChanged)
+    Q_PROPERTY(bool confirmAppQuit MEMBER confirmAppQuit NOTIFY confirmAppQuitChanged)
     Q_PROPERTY(bool absoluteMouseMode MEMBER absoluteMouseMode NOTIFY absoluteMouseModeChanged)
     Q_PROPERTY(bool absoluteTouchMode MEMBER absoluteTouchMode NOTIFY absoluteTouchModeChanged)
     Q_PROPERTY(bool framePacing MEMBER framePacing NOTIFY framePacingChanged)
@@ -155,6 +156,7 @@ public:
     bool multiController;
     bool enableMdns;
     bool quitAppAfter;
+    bool confirmAppQuit;
     bool absoluteMouseMode;
     bool absoluteTouchMode;
     bool framePacing;
@@ -192,6 +194,7 @@ signals:
     void unsupportedFpsChanged();
     void enableMdnsChanged();
     void quitAppAfterChanged();
+    void confirmAppQuitChanged();
     void absoluteMouseModeChanged();
     void absoluteTouchModeChanged();
     void audioConfigChanged();
